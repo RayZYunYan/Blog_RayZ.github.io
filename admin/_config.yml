@@ -2,6 +2,9 @@ title: 思考集
 description: Just my personal thoughts and posts
 theme: minima
 
+url: "https://rayzyunyan.github.io"
+baseurl: "/Blog_RayZ.github.io"
+
 header_pages:
   - index.md
   - write.html

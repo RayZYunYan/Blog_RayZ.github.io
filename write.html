@@ -4,25 +4,19 @@ title: 写文章
 permalink: /write/
 ---
 
-<p>点击下面的按钮，在 GitHub 网页端新建一篇文章（会自动放到 <code>_posts</code>）。</p>
-
+<p>点击下面按钮，直接在 GitHub 网页端新建一篇文章（自动放到 <code>_posts</code>）。</p>
 <button id="newPostBtn">新建文章</button>
 
 <script>
   (function () {
-    // 你的用户名与仓库名
     const user = "RayZYunYan";
-    const repo = "Blog_RayZ.github.io";
-    // 文章默认标题，可在 GitHub 页面再改
-    const defaultTitle = "new-post";
-    // YYYY-MM-DD
+    const repo = "Blog_RayZ.github.io"; // ← 确保与仓库同名
     const d = new Date();
     const yyyy = d.getFullYear();
     const mm = String(d.getMonth() + 1).padStart(2, "0");
     const dd = String(d.getDate()).padStart(2, "0");
     const date = `${yyyy}-${mm}-${dd}`;
 
-    // 预填充的 Markdown 模板（YAML front matter）
     const md = `---
 layout: post
 title: "在这里写标题"
@@ -32,16 +26,9 @@ date: ${date}
 这里写正文。支持 **Markdown**、图片、代码块等。
 `;
 
-    // 目标：GitHub 新建文件页面（main 分支，_posts 目录）
     const base = `https://github.com/${user}/${repo}/new/main/_posts`;
-    const params = new URLSearchParams({
-      filename: `${date}-${defaultTitle}.md`,
-      value: md
-    });
+    const params = new URLSearchParams({ filename: `${date}-new-post.md`, value: md });
     const url = `${base}?${params.toString()}`;
-
-    document.getElementById("newPostBtn").onclick = () => {
-      window.location.href = url;
-    };
+    document.getElementById("newPostBtn").onclick = () => { window.location.href = url; };
   })();
 </script>
