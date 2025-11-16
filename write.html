@@ -4,7 +4,7 @@ title: 写文章
 permalink: /write/
 ---
 
-<p>点击下面按钮，直接在 GitHub 网页端新建一篇文章（自动放到 <code>_posts</code>）。</p>
+<p>点击下面按钮，直接在 GitHub 网页端新建一篇文章。</p>
 <button id="newPostBtn">新建文章</button>
 
 <script>
@@ -27,7 +27,7 @@ date: ${date}
 `;
 
     const base = `https://github.com/${user}/${repo}/new/main/_posts`;
-    const params = new URLSearchParams({ filename: `${date}-new-post.md`, value: md });
+    const params = new URLSearchParams({ filename: `${date}.md`, value: md });
     const url = `${base}?${params.toString()}`;
     document.getElementById("newPostBtn").onclick = () => { window.location.href = url; };
   })();
