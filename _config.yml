@@ -1,10 +1,8 @@
-title: 思考集
-description: 不在思想的漩涡当中时，已经深陷愚蠢的沼泽了
-theme: minima
+theme: jekyll-theme-minimal
+title: Ray's Blog
+description: 每一次记录都是思想的革命
+plugins:
+  - jekyll-paginate
 
-url: "https://rayzyunyan.github.io"
-baseurl: "/Blog_RayZ.github.io"
-
-header_pages:
-  - index.md
-  - write.html
+paginate: 6
+paginate_path: "/page:num/"
