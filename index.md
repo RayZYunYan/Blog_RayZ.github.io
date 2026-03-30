@@ -1,18 +1,27 @@
 ---
-layout: default
+layout: home
+title: Home
 ---
 
-  {% for post in paginator.posts %}
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt }}</p>
-  {% endfor %}
+Welcome back, Ray!
+每一次记录都是思想的革命
 
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_url }}">Previous</a>
-    {% endif %}
-    Page {{ paginator.page }} of {{ paginator.total_pages }}
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_url }}">Next</a>
-    {% endif %}
-  </div>
+{% for post in paginator.posts %}
+<article class="post">
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<p class="post-meta">{{ post.date | date: "%B %e, %Y" }}</p>
+{{ post.excerpt }}
+</article>
+{% endfor %}
+
+<div class="pagination">
+{% if paginator.previous_page %}
+<a href="{{ paginator.previous_page_url }}">← 上一页</a>
+{% endif %}
+
+Page {{ paginator.page }} of {{ paginator.total_pages }}
+
+{% if paginator.next_page %}
+<a href="{{ paginator.next_page_url }}">下一页 →</a>
+{% endif %}
+</div>
